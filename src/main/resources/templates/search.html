@@ -37,7 +37,17 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
+    <table th:fragment="job-listing" class="job-listing" th:each="job: ${jobs}">
 
+        <tr th:each="entry: ${job}" th:switch="${entry.key}">
+            <td th:text="${entry.key}"></td>
+            <td th:case="'position type'" th:text="${entry.value}"></td>
+            <td th:case="'name'" th:text="${entry.value}"></td>
+            <td th:case="'employer'" th:text="${entry.value}"></td>
+            <td th:case="'location'" th:text="${entry.value}"></td>
+            <td th:case="'core competency'" th:text="${entry.value}"></td>
+        </tr>
+    </table>
 </div>
 
 </body>
